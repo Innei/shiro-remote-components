@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "cross-env BUILD=1 rollup -c",
+    "build": "rm -rf dist && cross-env BUILD=1 rollup -c",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

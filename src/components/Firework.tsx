@@ -24,7 +24,7 @@ export default () => {
     <>
       <div className="cn-flex cn-w-full cn-justify-center">
         <button
-          className="cn-btn cn-btn-circle cn-btn-accent cn-h-auto !cn-min-h-0 cn-w-auto cn-px-4 cn-py-2"
+          className="cn-rounded-lg cn-bg-white cn-px-4 cn-py-1 cn-text-sm cn-font-medium cn-text-red-400 cn-ring-1 cn-ring-zinc-200 hover:cn-bg-zinc-50 dark:cn-bg-black dark:cn-text-red-600 dark:cn-ring-zinc-800 dark:hover:cn-bg-neutral-950"
           onClick={handleFire}
         >
           Fire!
