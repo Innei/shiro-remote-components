@@ -22,9 +22,9 @@ export default () => {
 
   return (
     <>
-      <div className="cn-flex cn-w-full cn-justify-center">
+      <div className="flex w-full justify-center">
         <button
-          className="cn-rounded-lg cn-bg-white cn-px-4 cn-py-1 cn-text-sm cn-font-medium cn-text-red-400 cn-ring-1 cn-ring-zinc-200 hover:cn-bg-zinc-50 dark:cn-bg-black dark:cn-text-red-600 dark:cn-ring-zinc-800 dark:hover:cn-bg-neutral-950"
+          className="rounded-lg bg-white px-4 py-1 text-sm font-medium text-red-400 ring-1 ring-zinc-200 hover:bg-zinc-50 dark:bg-black dark:text-red-600 dark:ring-zinc-800 dark:hover:bg-neutral-950"
           onClick={handleFire}
         >
           Fire!
@@ -33,10 +33,10 @@ export default () => {
       <RootPortal>
         <div
           className={[
-            'cn-fixed cn-inset-0 cn-bg-black cn-duration-200',
+            'fixed inset-0 bg-black duration-200',
             show
-              ? 'cn-z-[9998] cn-opacity-100'
-              : 'cn-pointer-events-none cn-z-[-99] cn-opacity-0',
+              ? 'z-[9998] opacity-100'
+              : 'pointer-events-none z-[-99] opacity-0',
           ].join(' ')}
         />
         <Fireworks
@@ -49,7 +49,7 @@ export default () => {
           options={{
             autoresize: true,
           }}
-          className={show ? 'cn-fixed cn-inset-0 cn-z-[9999]' : 'cn-hidden'}
+          className={show ? 'fixed inset-0 z-[9999]' : 'hidden'}
         />
       </RootPortal>
     </>
