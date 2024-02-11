@@ -32,7 +32,7 @@ const baseConfig = {
       declaration: false,
     }),
     css({
-      extract: true,
+      // extract: true,
       minimize: true,
       modules: {
         generateScopedName: '[hash:base64:5]',
