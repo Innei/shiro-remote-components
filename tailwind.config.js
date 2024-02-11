@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   // prefix: 'cn-',
-  darkMode: ['class', 'html[data-mode="dark"]'],
+  darkMode: ['class', '[data-theme="dark"]'],
   content: ['src/**/*.{ts,tsx}', './storybook/**/*.{ts,tsx}'],
   corePlugins:
     process.env.BUILD == '1'
