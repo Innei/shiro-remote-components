@@ -1,6 +1,8 @@
 // import.meta.glob('../src/components/**').then((modules) => {
 
 // })
+import '../src/index.css'
+
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 

@@ -16,5 +16,11 @@ declare global {
       StyledButton: FC<ButtonProps>
     }
   }
+
+  declare module '*.css' {
+    const content: { [className: string]: string }
+    export default content
+  }
 }
+
 export {}

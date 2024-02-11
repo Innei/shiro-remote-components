@@ -1,10 +1,10 @@
-import '../index.css'
-
 import { Fireworks } from '@fireworks-js/react'
 import React, { useRef } from 'react'
 import type { FireworksHandlers } from '@fireworks-js/react'
 
 import { RootPortal } from '@/shared/portal'
+
+import Styles from './Firework.module.css'
 
 export default () => {
   const [show, setShow] = React.useState(false)
@@ -22,22 +22,22 @@ export default () => {
 
   return (
     <>
-      <div className="flex w-full justify-center">
-        <button
-          className="rounded-lg bg-white px-4 py-1 text-sm font-medium text-red-400 ring-1 ring-zinc-200 hover:bg-zinc-50 dark:bg-black dark:text-red-600 dark:ring-zinc-800 dark:hover:bg-neutral-950"
-          onClick={handleFire}
-        >
+      <div className={Styles.root}>
+        <button className={Styles.button} onClick={handleFire}>
           Fire!
         </button>
       </div>
       <RootPortal>
         <div
-          className={[
-            'fixed inset-0 bg-black duration-200',
-            show
-              ? 'z-[9998] opacity-100'
-              : 'pointer-events-none z-[-99] opacity-0',
-          ].join(' ')}
+          // className={[
+          //   'fixed inset-0 bg-black duration-200',
+          //   show
+          //     ? 'z-[9998] opacity-100'
+          //     : 'pointer-events-none z-[-99] opacity-0',
+          // ].join(' ')}
+          className={[Styles.firework, show ? Styles.show : Styles.hide].join(
+            ' ',
+          )}
         />
         <Fireworks
           onClick={() => {
@@ -49,7 +49,8 @@ export default () => {
           options={{
             autoresize: true,
           }}
-          className={show ? 'fixed inset-0 z-[9999]' : 'hidden'}
+          // className={show ? 'fixed inset-0 z-[9999]' : 'hidden'}
+          className={[Styles.overlay, !show ? Styles.hide : ''].join(' ')}
         />
       </RootPortal>
     </>

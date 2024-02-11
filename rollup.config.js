@@ -7,6 +7,7 @@ import externalGlobals from 'rollup-plugin-external-globals'
 
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
+import replace from '@rollup/plugin-replace'
 import typescript from '@rollup/plugin-typescript'
 
 import css from 'rollup-plugin-postcss'
@@ -19,14 +20,19 @@ const dir = 'dist'
 
 const baseConfig = {
   plugins: [
+    replace({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+      preventAssignment: true,
+    }),
     nodeResolve(),
+
     commonjs({ include: 'node_modules/**' }),
     typescript({
       tsconfig: './tsconfig.json',
       declaration: false,
     }),
     css({
-      // extract: true,
+      extract: true,
       minimize: true,
       modules: {
         generateScopedName: '[hash:base64:5]',
@@ -49,20 +55,24 @@ const baseConfig = {
  */
 const config = readdirSync(
   path.resolve(dirname(fileURLToPath(import.meta.url)), 'src/components'),
-).map((file) => {
-  const name = file.split('.')[0]
-  return {
-    ...baseConfig,
-    input: `src/components/${name}.tsx`,
-    output: [
-      {
-        file: `${dir}/components/${name}.js`,
-        format: 'umd',
-        sourcemap: false,
-        name: `MDX.${name}`,
-      },
-    ],
-  }
-})
+)
+  .map((file) => {
+    const name = file.split('.')[0]
+    const ext = file.split('.')[1]
+    if (ext !== 'tsx') return
+    return {
+      ...baseConfig,
+      input: `src/components/${name}.tsx`,
+      output: [
+        {
+          file: `${dir}/components/${name}.js`,
+          format: 'umd',
+          sourcemap: false,
+          name: `MDX.${name}`,
+        },
+      ],
+    }
+  })
+  .filter(Boolean)
 
 export default config
