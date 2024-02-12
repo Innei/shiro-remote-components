@@ -1,4 +1,4 @@
-import { createPortal } from 'react-dom'
+import ReactDOM from 'react-dom'
 import type { FC, PropsWithChildren } from 'react'
 
 export const RootPortal: FC<
@@ -6,5 +6,5 @@ export const RootPortal: FC<
     to?: HTMLElement
   } & PropsWithChildren
 > = (props) => {
-  return createPortal(props.children, props.to || document.body)
+  return ReactDOM.createPortal(props.children, props.to || document.body)
 }

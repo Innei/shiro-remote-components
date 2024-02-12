@@ -9,7 +9,8 @@
     "preview": "vite preview"
   },
   "files": [
-    "dist"
+    "dist",
+    "excalidraw"
   ],
   "bump": {
     "publish": true,

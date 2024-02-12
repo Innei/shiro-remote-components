@@ -20,6 +20,12 @@ const dir = 'dist'
 
 const baseConfig = {
   plugins: [
+    externalGlobals({
+      react: 'React',
+      'styled-components': 'window',
+      'react-dom': 'ReactDOM',
+      // https://cdnjs.cloudflare.com/ajax/libs/styled-components/6.1.8/styled-components.min.js
+    }),
     replace({
       'process.env.NODE_ENV': JSON.stringify('production'),
       preventAssignment: true,
@@ -38,21 +44,14 @@ const baseConfig = {
         generateScopedName: '[hash:base64:5]',
       },
     }),
-    externalGlobals({
-      react: 'React',
-      React: 'React',
-      ReactDOM: 'ReactDOM',
-      'styled-components': 'window',
-      // https://cdnjs.cloudflare.com/ajax/libs/styled-components/6.1.8/styled-components.min.js
-    }),
+
     minify(),
   ],
 
   treeshake: true,
+  external: ['react', 'react-dom', 'styled-components'],
 }
-/**
- * @type {import('rollup').RollupOptions[]}
- */
+
 const config = readdirSync(
   path.resolve(dirname(fileURLToPath(import.meta.url)), 'src/components'),
 )
@@ -60,13 +59,17 @@ const config = readdirSync(
     const name = file.split('.')[0]
     const ext = file.split('.')[1]
     if (ext !== 'tsx') return
+    /**
+     * @type {import('rollup').RollupOptions}
+     */
     return {
       ...baseConfig,
+
       input: `src/components/${name}.tsx`,
       output: [
         {
           file: `${dir}/components/${name}.js`,
-          format: 'umd',
+          format: 'iife',
           sourcemap: false,
           name: `MDX.${name}`,
         },
