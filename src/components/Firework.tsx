@@ -2,6 +2,7 @@ import { Fireworks } from '@fireworks-js/react'
 import React, { useRef } from 'react'
 import type { FireworksHandlers } from '@fireworks-js/react'
 
+import { trackEvent } from '@/lib/umami'
 import { RootPortal } from '@/shared/portal'
 
 import Styles from './Firework.module.css'
@@ -9,6 +10,7 @@ import Styles from './Firework.module.css'
 export default () => {
   const [show, setShow] = React.useState(false)
   const handleFire = () => {
+    trackEvent('firework-click')
     setShow((s) => !s)
 
     if (!show) {
@@ -24,7 +26,7 @@ export default () => {
     <>
       <div className={Styles.root}>
         <button className={Styles.button} onClick={handleFire}>
-          Fire!
+          新年快乐！
         </button>
       </div>
       <RootPortal>
