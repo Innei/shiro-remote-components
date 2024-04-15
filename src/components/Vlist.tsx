@@ -3,10 +3,7 @@ import { Virtuoso } from 'react-virtuoso'
 
 export function Normal() {
   const data = useMemo(() => {
-    return Array.from({ length: 100000 }, (_, index) => ({
-      name: `User ${index}`,
-      description: `Description for user ${index}`,
-    }))
+    return Array.from({ length: 100000 }, (_, index) => `Index ${index}`)
   }, [])
 
   return (
@@ -14,17 +11,14 @@ export function Normal() {
       style={{ height: 400 }}
       totalCount={data.length}
       itemContent={(index) => {
-        const user = data[index]
+        const text = data[index]
         return (
           <div
             style={{
               padding: '5px',
             }}
           >
-            <p>
-              <strong>{user.name}</strong>
-            </p>
-            <div>{user.description}</div>
+            <div>{text}</div>
           </div>
         )
       }}
@@ -34,10 +28,7 @@ export function Normal() {
 
 export function Copied() {
   const data = useMemo(() => {
-    return Array.from({ length: 100000 }, (_, index) => ({
-      name: `User ${index}`,
-      description: `Description for user ${index}`,
-    }))
+    return Array.from({ length: 100000 }, (_, index) => `Index ${index}`)
   }, [])
 
   const startAnchorNode = React.useRef<Node | null>(null)
@@ -73,7 +64,7 @@ export function Copied() {
           e.clipboardData?.setData(
             'text/plain',
             data.reduce((acc, cur) => {
-              return acc + cur.name + '\n' + cur.description + '\n\n'
+              return acc + cur + '\n'
             }, ''),
           )
           return
@@ -82,10 +73,10 @@ export function Copied() {
         const selection = window.getSelection()
         if (!selection) return
 
-        // 同一锚点不阻止复制，使用默认行为
-        if (selection.anchorNode === startAnchorNode.current) {
-          return
-        }
+        // // 同一锚点不阻止复制，使用默认行为
+        // if (selection.anchorNode === startAnchorNode.current) {
+        //   return
+        // }
         e.preventDefault()
         const currentFocusNode = selection.focusNode
         if (!currentFocusNode) return
@@ -99,24 +90,41 @@ export function Copied() {
           currentFocusNode.parentElement,
         )
 
-        if (
-          startSelectedInDataIndex.current === null ||
-          currentFocusDataIndex === null
-        )
-          return
+        const startIndex = startSelectedInDataIndex.current
+        const endIndex = currentFocusDataIndex
+        if (startIndex === null || endIndex === null) return
 
         const sliceData = data.slice(
-          Math.min(startSelectedInDataIndex.current, currentFocusDataIndex),
-          Math.max(startSelectedInDataIndex.current, currentFocusDataIndex) + 1,
+          Math.min(startIndex, endIndex),
+          Math.max(startIndex, endIndex) + 1,
         )
 
-        // 复制到剪贴板
-        e.clipboardData?.setData(
-          'text/plain',
-          sliceData.reduce((acc, cur) => {
-            return acc + cur.name + '\n' + cur.description + '\n\n'
-          }, ''),
-        )
+        const selectionInteractDir = startIndex < Number(endIndex) ? 1 : -1
+
+        let actualSelectedText = ''
+        const firstData = sliceData[0]
+
+        const selectionStartPos = startRangeStartAtIndex.current!
+        const selectionEndPos = selection.focusOffset
+        if (selectionInteractDir === 1) {
+          actualSelectedText =
+            firstData.slice(selectionStartPos) +
+            '\n' +
+            sliceData.slice(1, -1).reduce((acc, segment) => {
+              return acc + segment + '\n'
+            }, '') +
+            sliceData.at(-1)!.slice(0, selectionEndPos)
+        } else {
+          actualSelectedText =
+            firstData.slice(selectionEndPos) +
+            '\n' +
+            sliceData.slice(1, -1).reduce((acc, cur) => {
+              return acc + cur + '\n'
+            }, '') +
+            sliceData.at(-1)!.slice(0, selectionStartPos)
+        }
+
+        e.clipboardData?.setData('text/plain', actualSelectedText)
       }}
       onMouseDown={() => {
         requestAnimationFrame(() => {
@@ -140,7 +148,7 @@ export function Copied() {
         style={{ height: 400 }}
         totalCount={data.length}
         itemContent={(index) => {
-          const user = data[index]
+          const text = data[index]
           return (
             <div
               data-index={index}
@@ -148,10 +156,7 @@ export function Copied() {
                 padding: '5px',
               }}
             >
-              <p>
-                <strong>{user.name}</strong>
-              </p>
-              <div>{user.description}</div>
+              <div>{text}</div>
             </div>
           )
         }}
