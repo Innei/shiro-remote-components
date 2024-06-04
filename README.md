@@ -12,6 +12,10 @@ height=25
 ```
 ````
 
+## Excalidraw
+
+Copy `https://cdn.jsdelivr.net/gh/innei/shiro-remote-components@main/excalidraw/`
+
 ## Props
 
 `import=<remote-js-url>` is similar to importing a js code
