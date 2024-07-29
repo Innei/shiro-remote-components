@@ -5,7 +5,7 @@ import { Tooltip } from '@/ui/tooltip'
 
 import '../index.css'
 
-export const GithubCalendar = () => {
+const GithubCalendar = () => {
   return (
     <ActivityCalendar
       username="Innei"

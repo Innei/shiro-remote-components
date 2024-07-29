@@ -62,6 +62,7 @@ const Tooltip = React.forwardRef<
               className={cx(
                 // base
                 'max-w-60 select-none rounded-md px-2.5 py-1.5 text-sm leading-5 shadow-md',
+                'z-50',
                 // text color
                 'text-gray-50 dark:text-gray-900',
                 // background color
