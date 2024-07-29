@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "rm -rf dist && cross-env BUILD=1 rollup -c",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "css": "tailwindcss -i ./src/index.css -o ./dist/index.css"
   },
   "files": [
     "dist",
@@ -20,9 +21,11 @@
     "push": true
   },
   "dependencies": {
+    "@radix-ui/react-tooltip": "1.1.2",
     "@virtuoso.dev/message-list": "1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-github-calendar": "4.1.6",
     "react-virtuoso": "4.7.8",
     "styled-components": "^6.1.8"
   },
