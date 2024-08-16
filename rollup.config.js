@@ -4,6 +4,7 @@ import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { minify } from 'rollup-plugin-esbuild'
 import externalGlobals from 'rollup-plugin-external-globals'
+import mangle from 'unplugin-tailwindcss-mangle/rollup'
 
 import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
@@ -37,9 +38,11 @@ const baseConfig = {
       tsconfig: './tsconfig.json',
       declaration: false,
     }),
+    mangle({ classGenerator: { customGenerate: (string) => `sp-${string}` } }),
     css({
       // extract: true,
       minimize: true,
+
       modules: {
         generateScopedName: '[hash:base64:5]',
       },

@@ -1,5 +1,5 @@
 import react from '@vitejs/plugin-react'
-import externalGlobals from 'rollup-plugin-external-globals'
+import utwm from 'unplugin-tailwindcss-mangle/vite'
 import { defineConfig } from 'vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
@@ -9,24 +9,9 @@ export default defineConfig({
       jsxRuntime: 'classic',
     }),
     tsconfigPaths(),
+    // utwm({
+    // disabled: false,
+    // classGenerator: { customGenerate: () => nanoid(8) },
+    // }),
   ],
-  build: {
-    lib: {
-      entry: 'src/index.ts',
-      name: 'MyComponents',
-      formats: ['umd'],
-      fileName: () => 'main.js',
-    },
-    rollupOptions: {
-      plugins: [
-        externalGlobals({
-          react: 'React',
-          React: 'React',
-          ReactDOM: 'ReactDOM',
-          'styled-components': 'window',
-          // https://cdnjs.cloudflare.com/ajax/libs/styled-components/6.1.8/styled-components.min.js
-        }),
-      ],
-    },
-  },
 })

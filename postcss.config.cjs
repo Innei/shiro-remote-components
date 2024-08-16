@@ -4,5 +4,8 @@ module.exports = {
     'tailwindcss/nesting': {},
     tailwindcss: {},
     autoprefixer: {},
+    'postcss-rename': {
+      strategy: (s) => `sp-${s}`,
+    },
   },
 }

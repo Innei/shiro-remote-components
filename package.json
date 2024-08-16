@@ -1,10 +1,11 @@
 {
   "name": "@innei/react-cdn-components",
-  "version": "0.0.16",
+  "version": "0.0.20",
   "type": "module",
   "scripts": {
+    "prepare": "tw-patch install",
     "dev": "vite",
-    "build": "rm -rf dist && cross-env BUILD=1 rollup -c",
+    "build": "rm -rf dist && npx tw-patch extract && cross-env BUILD=1 rollup -c",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "css": "tailwindcss -i ./src/index.css -o ./dist/index.css"
@@ -23,10 +24,12 @@
   "dependencies": {
     "@radix-ui/react-tooltip": "1.1.2",
     "@virtuoso.dev/message-list": "1.2.1",
+    "nanoid": "5.0.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-github-calendar": "4.1.6",
     "react-virtuoso": "4.7.8",
+    "stable-hash": "0.0.4",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
@@ -56,6 +59,7 @@
     "lucide-react": "^0.323.0",
     "postcss": "^8.4.35",
     "postcss-import": "^16.0.0",
+    "postcss-rename": "0.6.1",
     "rollup": "^4.10.0",
     "rollup-plugin-esbuild": "^6.1.1",
     "rollup-plugin-external-globals": "^0.9.1",
@@ -63,8 +67,16 @@
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
+    "tailwindcss-patch": "4.0.0",
     "typescript": "^5.2.2",
+    "unplugin-tailwindcss-mangle": "3.0.1",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "4.2.3"
+  },
+  "packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247",
+  "pnpm": {
+    "patchedDependencies": {
+      "postcss-rename": "patches/postcss-rename.patch"
+    }
   }
 }
