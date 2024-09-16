@@ -56,13 +56,14 @@ const SpringScollContainerDemo = () => {
 
     const $c = c.current
     if (!$c) return
-    const $comment = document.createComment('code: qocaKRsKQr')
+    // qocaKRsKQr
+    const $comment = document.createComment('Caesar=3: trfdNUvNTu')
     $c.prepend($comment)
 
     const $comment2 = document.createComment(
-      'aes: U2FsdGVkX1/rLF3uoiwBtAyH/EUUmgrYZ0Cx0ms4jZA=',
+      'U2FsdGVkX1/rLF3uoiwBtAyH/EUUmgrYZ0Cx0ms4jZA=',
     )
-    $c.prepend($comment2)
+    document.head.prepend($comment2)
   }, [])
 
   const c = React.useRef<HTMLDivElement>(null)
