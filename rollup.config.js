@@ -40,7 +40,7 @@ const baseConfig = {
     }),
     mangle({ classGenerator: { customGenerate: (string) => `sp-${string}` } }),
     css({
-      // extract: true,
+      extract: true,
       minimize: true,
 
       modules: {

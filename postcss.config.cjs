@@ -1,4 +1,6 @@
-const isDev = process.env.NODE_ENV === 'development'
+const isDev =
+  process.env.NODE_ENV === 'development' && process.env.BUILD !== '1'
+
 module.exports = {
   plugins: {
     'postcss-import': {},
