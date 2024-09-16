@@ -75,7 +75,7 @@ const SpringScollContainerDemo = () => {
       className="relative box-border flex w-full flex-row gap-4 overflow-auto px-4 font-sans"
     >
       <button
-        className="absolute top-1 appearance-none rounded-full border-transparent bg-blue-500 px-2 py-1 text-white"
+        className="absolute top-1 z-[10] cursor-pointer appearance-none rounded-full border-transparent bg-blue-500 px-2 py-1 text-white"
         onClick={() => {
           c.current?.querySelectorAll('button').forEach((e) => e.click())
         }}
@@ -83,7 +83,7 @@ const SpringScollContainerDemo = () => {
         Scroll
       </button>
       <button
-        className="absolute left-24 top-1 appearance-none rounded-full border-transparent bg-blue-500 px-2 py-1 text-white"
+        className="absolute left-24 top-1 z-[10] cursor-pointer appearance-none rounded-full border-transparent bg-blue-500 px-2 py-1 text-white"
         onClick={() => {
           if (!ref1.current) return
 

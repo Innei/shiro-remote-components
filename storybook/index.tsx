@@ -7,5 +7,7 @@ import SpringScollContainerDemo from '../src/components/SpringScroll'
 import { Copied } from '../src/components/Vlist'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  React.createElement(SpringScollContainerDemo),
+  <div className="relative h-screen w-screen overflow-hidden">
+    <SpringScollContainerDemo />
+  </div>,
 )
