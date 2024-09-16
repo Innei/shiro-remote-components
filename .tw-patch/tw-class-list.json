@@ -23,6 +23,7 @@
   "font-sans",
   "gap-4",
   "h-full",
+  "h-screen",
   "hidden",
   "leading-5",
   "left-24",
@@ -32,6 +33,7 @@
   "mt-5",
   "my-4",
   "overflow-auto",
+  "overflow-hidden",
   "p-2",
   "px-2",
   "px-2.5",
@@ -49,6 +51,8 @@
   "top-1",
   "transition",
   "w-full",
+  "w-screen",
   "will-change-[transform,opacity]",
-  "z-50"
+  "z-50",
+  "z-[10]"
 ]
