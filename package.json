@@ -1,6 +1,6 @@
 {
   "name": "@innei/react-cdn-components",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "type": "module",
   "scripts": {
     "prepare": "tw-patch install",
