@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { animateValue } from 'framer-motion'
 import type { Spring } from 'framer-motion'
 
@@ -50,6 +50,15 @@ const springScrollTo = (
 const SpringScollContainerDemo = () => {
   const ref1 = React.useRef<HTMLDivElement>(null)
   const ref2 = React.useRef<HTMLDivElement>(null)
+  useLayoutEffect(() => {
+    console.clear()
+    console.log('能看到这个，你离成功就不远了呢')
+
+    const $c = c.current
+    if (!$c) return
+    const $comment = document.createComment('code: qocaKRsKQr')
+    $c.prepend($comment)
+  }, [])
 
   const c = React.useRef<HTMLDivElement>(null)
   return (
