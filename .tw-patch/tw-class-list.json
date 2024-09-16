@@ -22,7 +22,6 @@
   "flex-row",
   "font-sans",
   "gap-4",
-  "h-[calc(300px+1rem)]",
   "h-full",
   "hidden",
   "leading-5",
