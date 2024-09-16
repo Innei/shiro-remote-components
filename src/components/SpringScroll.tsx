@@ -52,22 +52,27 @@ const SpringScollContainerDemo = () => {
   const ref2 = React.useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
     console.clear()
-    console.log('能看到这个，你离成功就不远了呢')
+    console.log('能看到这个，你离成功就不远了呢。Follow')
 
     const $c = c.current
     if (!$c) return
     const $comment = document.createComment('code: qocaKRsKQr')
     $c.prepend($comment)
+
+    const $comment2 = document.createComment(
+      'aes: U2FsdGVkX1/rLF3uoiwBtAyH/EUUmgrYZ0Cx0ms4jZA=',
+    )
+    $c.prepend($comment2)
   }, [])
 
   const c = React.useRef<HTMLDivElement>(null)
   return (
     <div
-      // style={{
-      //   background: `linear-gradient(to bottom, #8CA6DB, #B993D6)`,
-      //   // height: 1000,
-      // }}
-      className="relative box-border flex h-[calc(300px+1rem)] w-full flex-row gap-4 overflow-auto px-4 font-sans"
+      style={{
+        height: '100%',
+        overflow: 'hidden',
+      }}
+      className="relative box-border flex w-full flex-row gap-4 overflow-auto px-4 font-sans"
     >
       <button
         className="absolute top-1 appearance-none rounded-full border-transparent bg-blue-500 px-2 py-1 text-white"
@@ -82,11 +87,11 @@ const SpringScollContainerDemo = () => {
         onClick={() => {
           if (!ref1.current) return
 
-          springScrollTo(0, ref1.current)
+          ref1.current.scrollTop = 0
 
           if (!ref2.current) return
 
-          springScrollTo(0, ref2.current)
+          ref2.current.scrollTop = 0
         }}
       >
         Reset
