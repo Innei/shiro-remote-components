@@ -24,6 +24,7 @@
   "dependencies": {
     "@radix-ui/react-tooltip": "1.1.2",
     "@virtuoso.dev/message-list": "1.2.1",
+    "framer-motion": "11.5.4",
     "nanoid": "5.0.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
