@@ -51,17 +51,25 @@ const SpringScollContainerDemo = () => {
   const ref1 = React.useRef<HTMLDivElement>(null)
   const ref2 = React.useRef<HTMLDivElement>(null)
   useLayoutEffect(() => {
+    ref1.current?.scrollTo({
+      top: 10000,
+    })
+    ref2.current?.scrollTo({
+      top: 10000,
+    })
+
     console.clear()
     console.log('能看到这个，你离成功就不远了呢。Follow')
 
     const $c = c.current
     if (!$c) return
-    // qocaKRsKQr
-    const $comment = document.createComment('Caesar=3: trfdNUvNTu')
+    // 14r3lahX0x
+    const $comment = document.createComment('Caesar=6: 14x3rgnD0d')
     $c.prepend($comment)
 
     const $comment2 = document.createComment(
-      'U2FsdGVkX1/rLF3uoiwBtAyH/EUUmgrYZ0Cx0ms4jZA=',
+      // 2oabCZPVDN
+      'U2FsdGVkX1+QLiAcxuTHI6Ruy3I+fGwHlSWYxtQN23g=',
     )
     document.head.prepend($comment2)
   }, [])
@@ -88,11 +96,19 @@ const SpringScollContainerDemo = () => {
         onClick={() => {
           if (!ref1.current) return
 
-          ref1.current.scrollTop = 0
+          ref1.current.scrollTop = 10000
 
           if (!ref2.current) return
 
-          ref2.current.scrollTop = 0
+          ref2.current.scrollTop = 10000
+        }}
+        onDoubleClick={() => {
+          const answer = prompt('Answer:')
+          if (answer === 'Follow') {
+            alert('Correct!............... Y25Oek13PT0=')
+          } else {
+            alert('Wrong!')
+          }
         }}
       >
         Reset
@@ -108,7 +124,7 @@ const SpringScollContainerDemo = () => {
             onClick={() => {
               if (!ref1.current) return
 
-              springScrollTo(ref1.current.scrollHeight, ref1.current)
+              springScrollTo(0, ref1.current)
             }}
             className="mb-6 mt-2 hidden cursor-pointer appearance-none rounded-full border-transparent bg-blue-500 p-2 text-white"
           >
@@ -116,17 +132,7 @@ const SpringScollContainerDemo = () => {
           </button>
           {Array.from({ length: 30 }).map((_, i) => (
             <p className="my-4" key={i}>
-              Architecto possimus ipsa voluptas. Ut exercitationem eligendi
-              laudantium libero libero ipsam at animi. Hic ratione ab voluptatum
-              hic illum ea quisquam unde tempora. Id cum expedita est assumenda
-              tempore doloribus explicabo quae consectetur. Eius at rem. Maxime
-              exercitationem facilis odio ipsam. Aliquid repudiandae facere.
-              Repellendus adipisci cumque maiores quo velit fuga similique eius
-              nisi. Facere eius cumque repudiandae dolorum molestiae amet
-              consequuntur beatae. Ipsum dolore occaecati. Quibusdam nam culpa
-              accusamus deserunt doloribus sed. Modi harum quis cupiditate porro
-              odio. Porro id recusandae soluta numquam numquam distinctio
-              blanditiis.Architecto possimus ipsa voluptas. Ut exercitationem
+              Architecto possimus ipsa voluptas. vRShm 5Owkz Ut exercitationem
               eligendi laudantium libero libero ipsam at animi. Hic ratione ab
               voluptatum hic illum ea quisquam unde tempora. Id cum expedita est
               assumenda tempore doloribus explicabo quae consectetur. Eius at
@@ -134,6 +140,19 @@ const SpringScollContainerDemo = () => {
               facere. Repellendus adipisci cumque maiores quo velit fuga
               similique eius nisi. Facere eius cumque repudiandae dolorum
               molestiae amet consequuntur beatae. Ipsum dolore occaecati.
+              <div
+                onClick={() => {
+                  window.open(
+                    'https://c.p2hp.com/yinxietu/',
+                    '_blank',
+                    'noreferrer',
+                  )
+                }}
+                tabIndex={-1}
+                className="h-4 appearance-none"
+              >
+                <img src="https://cdn.jsdelivr.net/gh/cupchino/fancy2024@main/2024/0919130517.png" />
+              </div>
               Quibusdam nam culpa accusamus deserunt doloribus sed. Modi harum
               quis cupiditate porro odio. Porro id recusandae soluta numquam
               numquam distinctio blanditiis.Architecto possimus ipsa voluptas.
@@ -249,7 +268,18 @@ const SpringScollContainerDemo = () => {
               eius cumque repudiandae dolorum molestiae amet consequuntur
               beatae. Ipsum dolore occaecati. Quibusdam nam culpa accusamus
               deserunt doloribus sed. Modi harum quis cupiditate porro odio.
-              Porro id recusandae soluta numquam numquam distinctio blanditiis.
+              Porro id recusandae soluta numquam numquam distinctio
+              blanditiis.Architecto possimus ipsa voluptas. Ut exercitationem
+              eligendi laudantium libero libero ipsam at animi. Hic ratione ab
+              voluptatum hic illum ea quisquam unde tempora. Id cum expedita est
+              assumenda tempore doloribus explicabo quae consectetur. Eius at
+              rem. Maxime exercitationem facilis odio ipsam. Aliquid repudiandae
+              facere. Repellendus adipisci cumque maiores quo velit fuga
+              similique eius nisi. Facere eius cumque repudiandae dolorum
+              molestiae amet consequuntur beatae. Ipsum dolore occaecati.
+              Quibusdam nam culpa accusamus deserunt doloribus sed. Modi harum
+              quis cupiditate porro odio. Porro id recusandae soluta numquam
+              numquam distinctio blanditiis.
             </p>
           ))}
         </div>
@@ -260,7 +290,7 @@ const SpringScollContainerDemo = () => {
 
               ref2.current.scrollTo({
                 behavior: 'smooth',
-                top: ref2.current.scrollHeight,
+                top: 0,
               })
             }}
             className="mb-6 mt-2 hidden cursor-pointer appearance-none rounded-full border-transparent bg-blue-500 p-2 text-white"

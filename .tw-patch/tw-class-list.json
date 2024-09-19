@@ -22,6 +22,7 @@
   "flex-row",
   "font-sans",
   "gap-4",
+  "h-4",
   "h-full",
   "h-screen",
   "hidden",
