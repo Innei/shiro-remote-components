@@ -1,11 +1,11 @@
 {
   "name": "@innei/react-cdn-components",
-  "version": "0.0.27",
+  "version": "0.0.33",
   "type": "module",
   "scripts": {
     "prepare": "tw-patch install",
     "dev": "npm run storybook",
-    "build": "rm -rf dist && npx tw-patch extract && cross-env BUILD=1 rollup -c",
+    "build": "rm -rf dist && npx tw-patch extract && tailwind src/index.css -o ./dist/index.css && tsx build.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "css": "tailwindcss -i ./src/index.css -o ./dist/index.css",
@@ -19,9 +19,11 @@
   "bump": {
     "publish": true,
     "leading": [
-      "yarn build"
+      "tsx build.ts"
     ],
-    "push": true
+    "push": false,
+    "commit": false,
+    "allowDirty": true
   },
   "dependencies": {
     "@radix-ui/react-tooltip": "1.1.2",

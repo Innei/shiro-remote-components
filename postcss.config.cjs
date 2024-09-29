@@ -7,10 +7,10 @@ module.exports = {
     'tailwindcss/nesting': {},
     tailwindcss: {},
     autoprefixer: {},
-    'postcss-rename': isDev
-      ? void 0
-      : {
-          strategy: (s) => `sp-${s}`,
-        },
+    // 'postcss-rename': isDev
+    //   ? void 0
+    //   : {
+    //       strategy: (s) => `sp-${s}`,
+    //     },
   },
 }

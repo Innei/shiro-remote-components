@@ -1,5 +1,7 @@
 import type { FC } from 'react'
 
+import 'vite/client'
+
 declare global {
   type NativeButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
     href?: string
