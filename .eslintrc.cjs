@@ -8,5 +8,5 @@ module.exports = {
   rules: {
     'react/display-name': 'off',
   },
-  extends: ['@innei/eslint-config-react-ts'],
+  extends: ['@innei/eslint-config-react-ts', 'plugin:storybook/recommended'],
 }

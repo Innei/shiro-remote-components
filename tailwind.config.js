@@ -2,7 +2,11 @@
 module.exports = {
   // prefix: 'cn-',
   darkMode: ['class', '[data-theme="dark"]'],
-  content: ['src/**/*.{ts,tsx}', './storybook/**/*.{ts,tsx}'],
+  content: [
+    'src/**/*.{ts,tsx}',
+    './storybook/**/*.{ts,tsx}',
+    './.storybook/preview.tsx',
+  ],
   corePlugins:
     process.env.BUILD == '1'
       ? {
