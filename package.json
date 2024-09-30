@@ -1,54 +1,34 @@
 {
   "name": "@innei/react-cdn-components",
-  "version": "0.0.33",
   "type": "module",
-  "scripts": {
-    "prepare": "tw-patch install",
-    "dev": "npm run storybook",
-    "build": "rm -rf dist && npx tw-patch extract && tailwind src/index.css -o ./dist/index.css && tsx build.ts",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "css": "tailwindcss -i ./src/index.css -o ./dist/index.css",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
-  },
+  "version": "0.0.33",
+  "packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247",
   "files": [
     "dist",
     "excalidraw"
   ],
-  "bump": {
-    "publish": true,
-    "leading": [
-      "tsx build.ts"
-    ],
-    "push": false,
-    "commit": false,
-    "allowDirty": true
+  "scripts": {
+    "build": "rm -rf dist && tailwind src/index.css -o ./dist/index.css && tsx build.ts",
+    "build-storybook": "storybook build",
+    "css": "tailwindcss -i ./src/index.css -o ./dist/index.css",
+    "dev": "npm run storybook",
+    "lint": "eslint --fix",
+    "storybook": "storybook dev -p 6006"
   },
   "dependencies": {
     "@radix-ui/react-tooltip": "1.1.2",
-    "@virtuoso.dev/message-list": "1.2.1",
     "framer-motion": "11.5.4",
     "nanoid": "5.0.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-github-calendar": "4.1.6",
-    "react-virtuoso": "4.7.8",
-    "shiro-types": "1.0.6",
-    "stable-hash": "0.0.4",
-    "styled-components": "^6.1.8"
+    "shiro-types": "1.0.6"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.9.0",
-    "@fireworks-js/react": "^2.10.7",
-    "@innei/eslint-config-react-ts": "^0.12.2",
     "@innei/prettier": "^0.12.2",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-slot": "^1.0.2",
-    "@rollup/plugin-commonjs": "^25.0.7",
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-replace": "^5.0.5",
-    "@rollup/plugin-typescript": "^11.1.6",
     "@storybook/addon-essentials": "^8.3.4",
     "@storybook/addon-interactions": "^8.3.4",
     "@storybook/addon-links": "^8.3.4",
@@ -60,40 +40,34 @@
     "@types/node": "^20.11.17",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.17",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cross-env": "^7.0.3",
     "daisyui": "^4.6.2",
-    "eslint": "^8.56.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5",
-    "eslint-plugin-storybook": "0.9.0",
+    "eslint": "9.11.1",
+    "eslint-config-hyoban": "3.1.8",
     "lucide-react": "^0.323.0",
     "postcss": "^8.4.35",
     "postcss-import": "^16.0.0",
     "postcss-rename": "0.6.1",
-    "rollup": "^4.10.0",
-    "rollup-plugin-esbuild": "^6.1.1",
-    "rollup-plugin-external-globals": "^0.9.1",
-    "rollup-plugin-postcss": "^4.0.2",
     "storybook": "^8.3.4",
     "tailwind-merge": "^2.2.1",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-patch": "4.0.0",
     "typescript": "^5.2.2",
-    "unplugin-tailwindcss-mangle": "3.0.1",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "4.2.3"
   },
-  "packageManager": "pnpm@9.7.1+sha512.faf344af2d6ca65c4c5c8c2224ea77a81a5e8859cbc4e06b1511ddce2f0151512431dd19e6aff31f2c6a8f5f2aced9bd2273e1fed7dd4de1868984059d2c4247",
-  "pnpm": {
-    "patchedDependencies": {
-      "postcss-rename": "patches/postcss-rename.patch"
-    }
+  "bump": {
+    "publish": true,
+    "leading": [
+      "npm run build"
+    ],
+    "push": false,
+    "commit": false,
+    "allowDirty": true
   }
 }

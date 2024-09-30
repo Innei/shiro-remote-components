@@ -1,5 +1,5 @@
-import ReactDOM from 'react-dom'
 import type { FC, PropsWithChildren } from 'react'
+import ReactDOM from 'react-dom'
 
 export const RootPortal: FC<
   {

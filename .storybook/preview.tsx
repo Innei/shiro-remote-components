@@ -1,10 +1,9 @@
-import React from 'react'
-import { injectGlobal } from 'shiro-types/sandbox'
-import type { Preview, StoryFn } from '@storybook/react'
-
 import 'shiro-types/styles'
 
+import type { Preview, StoryFn } from '@storybook/react'
 import { domAnimation, LazyMotion } from 'framer-motion'
+import React from 'react'
+import { injectGlobal } from 'shiro-types/sandbox'
 
 injectGlobal()
 export const decorators: StoryFn<any>[] = [

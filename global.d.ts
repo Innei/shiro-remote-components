@@ -1,6 +1,6 @@
-import type { FC } from 'react'
-
 import 'vite/client'
+
+import type { FC } from 'react'
 
 declare global {
   type NativeButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -20,7 +20,7 @@ declare global {
   }
 
   declare module '*.css' {
-    const content: { [className: string]: string }
+    const content: Record<string, string>
     export default content
   }
 }

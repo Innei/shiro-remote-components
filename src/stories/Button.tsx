@@ -1,4 +1,4 @@
-import React, { createElement } from 'react'
+import React from 'react'
 import { getGlobalComponent } from 'shiro-types'
 
 const ShiroButton = getGlobalComponent('Button')
